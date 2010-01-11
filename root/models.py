@@ -14,11 +14,15 @@ class Post(models.Model):
     modified = models.DateTimeField(auto_now=True)
     submitted_from = models.IPAddressField()
 
-    def __unicode__(self):
+    def short_message(self):
         if len(self.message) < 20:
             return self.message
         else:
             return self.message[:20].rsplit(' ', 1)[0] + u'…'
+    short_message.short_description = 'Message'
+
+    def __unicode__(self):
+        return self.short_message()
 
     @models.permalink
     def get_absolute_url(self):
