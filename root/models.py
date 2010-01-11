@@ -13,6 +13,7 @@ class Post(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+    submitted_from = models.IPAddressField()
 
     def __unicode__(self):
         if len(self.message) < 20:

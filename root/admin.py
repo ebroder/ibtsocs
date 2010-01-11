@@ -4,7 +4,6 @@ from django.forms import widgets
 from ibtsocs.root.models import Post
 
 class PostAdmin(admin.ModelAdmin):
-    fields = ['message', 'nick']
     def formfield_for_dbfield(self, db_field, **kwargs):
         if db_field.name == 'message':
             kwargs['widget'] = widgets.Textarea
