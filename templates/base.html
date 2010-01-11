@@ -8,6 +8,12 @@
 </head>
 
 <body>
+    {% block navigation %}
+    <div id="nav">
+      <a href="{% url ibtsocs.root.views.index %}">cd ~</a>
+    </div>
+    {% endblock %}
+
     <div id="content">
         {% block content %}{% endblock %}
     </div>
