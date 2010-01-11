@@ -2,6 +2,7 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.shortcuts import get_object_or_404, redirect, render_to_response
 
 from ibtsocs.root.models import Post, Vote
+from ibtsocs.root.forms import PostForm
 
 def index(request):
     post_list = Post.objects.order_by('-created')
@@ -36,3 +37,18 @@ def vote(request, post_id, direction):
                  vote_up=(direction == 'up'))
         v.save()
     return redirect(request.META.get('HTTP_REFERER', post))
+
+def create(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            p = form.save(commit=False)
+            p.submitted_from = request.META['REMOTE_ADDR']
+            p.save()
+
+            return redirect(p)
+    else:
+        form = PostForm()
+
+    return render_to_response('root/create.html',
+                              {'form': form})

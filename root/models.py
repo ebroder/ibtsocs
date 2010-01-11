@@ -7,8 +7,16 @@ from django.db import models
 import tagging
 
 class Post(models.Model):
-    message = models.CharField(max_length=255)
-    nick = models.CharField(max_length=128, null=True)
+    message = models.CharField(
+        max_length=255,
+        verbose_name="Why are you bemoaning computer science today?"
+        )
+    nick = models.CharField(
+        max_length=128,
+        null=True,
+        blank=True,
+        verbose_name='Nickname'
+        )
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)

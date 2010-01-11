@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}IBTSOCS: Why do you BTSOCS?{% endblock %}
+
+{% block content %}
+<form action="{% url ibtsocs.root.views.create %}" method="post" />
+{{ form.as_p }}
+<p><input type="submit" value="Submit" /></p>
+</form>
+{% endblock %}

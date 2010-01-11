@@ -13,6 +13,7 @@ urlpatterns = patterns(
 urlpatterns += patterns(
     'ibtsocs.root.views',
     (r'^$', 'index'),
+    (r'^posts/new/$', 'create'),
     (r'^posts/(\d+)/$', 'display'),
     (r'^posts/(\d+)/(up|down)vote/$', 'vote'),
 )
