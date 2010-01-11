@@ -3,6 +3,10 @@
 {% block title %}IBTSOCS: I Bemoan The State Of Computer Science{% endblock %}
 
 {% block content %}
+<div id="postlink">
+  Are you bemoaning the state of computer science today? <a href="{% url ibtsocs.root.views.create %}">Tell us why!</a>
+</div>
+
 {% if posts %}
   <div id="posts">
     {% for post in posts.object_list %}
