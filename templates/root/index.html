@@ -15,6 +15,7 @@
   </div>
 
 
+{% ifnotequal posts.paginator.num_pages 1 %}
 <div class="pagination">
   <span class="step-links">
     {% if posts.has_previous %}
@@ -30,6 +31,7 @@
     {% endif %}
   </span>
 </div>
+{% endifnotequal %}
 {% else %}
   <p>No posts yet!</p>
 {% endif %}
