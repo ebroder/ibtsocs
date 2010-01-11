@@ -5,18 +5,14 @@
 /* This file contains screen-only layout declarations that won't be
    used for printing. */
 
-/* Make <body /> show up as a centered blue box with black border,
-   over the beige enclosing <html />. */
+/* Make <body /> show up as a blue box */
 html {
-    padding: 2em;
-    background: #f5f5dc;
+    background: #000082;
 }
 body {
     position: relative;
     margin: 0 auto;
     padding: 1em;
-    border: 5px solid black;
-    background: #000082;
     color: #fff;
 }
 
