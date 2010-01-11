@@ -1,3 +1,5 @@
+{% load post_extras %}
+
 <div class="post">
   <div class="post_message">{{ post.message }}</div>
   <div class="post_metadata">
@@ -5,5 +7,9 @@
     Posted by <span class="post_nick">{{ post.nick|default:"Anonymous Coward" }}</span>
     <span class="post_epoch_time">{{ post.created|date:"U" }}</span> seconds after the Unix Epoch
     (<span class="post_human_time">{{ post.created|date:"n/j/Y" }} at {{ post.created|time:"g:i:s a"}}</span>)
+    <div class="post_vote">
+      <span class="upvote">{% link_if_not_voted post visitor "up" "I agree, computer science sucks" %} ({{ post.upvotes }})</span>
+      <span class="downvote">{% link_if_not_voted post visitor "down" "PEBKAC" %} ({{ post.downvotes }})</span>
+    </div>
   </div>
 </div>
