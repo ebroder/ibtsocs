@@ -1,9 +1,22 @@
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.shortcuts import get_object_or_404, redirect, render_to_response
 
 from ibtsocs.root.models import Post, Vote
 
 def index(request):
-    posts = Post.objects.order_by('-created')[:10]
+    post_list = Post.objects.order_by('-created')
+    paginator = Paginator(post_list, 25)
+
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    try:
+        posts = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        posts = paginator.page(paginator.num_pages)
+
     return render_to_response('root/index.html',
                               {'posts': posts,
                                'visitor': request.session.session_key})
