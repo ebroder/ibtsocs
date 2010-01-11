@@ -23,6 +23,14 @@ class Post(models.Model):
     def get_absolute_url(self):
         return ('ibtsocs.root.views.display', [str(self.id)])
 
+    @property
+    def upvotes(self):
+        return self.votes.filter(vote_up=True).count()
+
+    @property
+    def downvotes(self):
+        return self.votes.filter(vote_up=False).count()
+
 class Vote(models.Model):
     visitor = models.ForeignKey(Session)
     post = models.ForeignKey(Post, related_name='votes')
