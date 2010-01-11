@@ -6,10 +6,7 @@
 {% if posts %}
   <div id="posts">
     {% for post in posts %}
-      <div class="post">
-        <div class="message">{{ post.message }}</div>
-	<div class="nickname">{{ post.nick|default:"Anonymous Coward" }}</div>
-     </div>
+      {% include "root/render_post.html" %}
     {% endfor %}
   </dif>
 {% else %}
