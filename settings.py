@@ -43,6 +43,8 @@ ADMIN_MEDIA_PREFIX = '/__scripts/django/media/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '-u45kzb(dyysp1q4cim)yk==m&ckba&2@&7ot2ki7lbgua$6wa'
 
+FORCE_LOWERCASE_TAGS = True
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
@@ -65,6 +67,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'tagging',
     'ibtsocs.root',
 )
 

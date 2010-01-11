@@ -1,5 +1,7 @@
 from django.db import models
 
+import tagging
+
 class Post(models.Model):
     message = models.CharField(max_length=255)
     nick = models.CharField(max_length=128, null=True)
@@ -9,3 +11,5 @@ class Post(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+
+tagging.register(Post)
