@@ -45,6 +45,9 @@ SECRET_KEY = '-u45kzb(dyysp1q4cim)yk==m&ckba&2@&7ot2ki7lbgua$6wa'
 
 FORCE_LOWERCASE_TAGS = True
 
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 4
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
