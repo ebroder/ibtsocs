@@ -9,7 +9,7 @@ import tagging
 class Post(models.Model):
     message = models.CharField(
         max_length=255,
-        verbose_name="Why are you bemoaning computer science today?"
+        verbose_name="Why are you bemoaning computer science today?",
         )
     nick = models.CharField(
         max_length=128,
