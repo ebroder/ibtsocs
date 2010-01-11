@@ -13,6 +13,9 @@ body {
 h1 {
     text-align: center;
 }
+#footnote {
+    font-size: 90%;
+}
 
 /* Colors. */
 :link {
