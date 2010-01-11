@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.contrib.sessions.models import Session
 
 import tagging
 
@@ -18,12 +19,8 @@ class Post(models.Model):
         else:
             return self.message[:20].rsplit(' ', 1)[0] + u'…'
 
-class Visitor(models.Model):
-    def __unicode__(self):
-        return unicode(self.id)
-
 class Vote(models.Model):
-    visitor = models.ForeignKey(Visitor, related_name='votes')
+    visitor = models.ForeignKey(Session)
     post = models.ForeignKey(Post, related_name='votes')
     vote_up = models.BooleanField()
 

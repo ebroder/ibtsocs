@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.forms import widgets
 
-from ibtsocs.root.models import Post, Visitor, Vote
+from ibtsocs.root.models import Post, Vote
 
 class PostAdmin(admin.ModelAdmin):
     def formfield_for_dbfield(self, db_field, **kwargs):
@@ -10,5 +10,4 @@ class PostAdmin(admin.ModelAdmin):
         return super(PostAdmin, self).formfield_for_dbfield(db_field, **kwargs)
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(Visitor)
 admin.site.register(Vote)
