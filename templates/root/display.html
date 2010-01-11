@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}IBTSOCS: {{ post.message|truncatewords:10 }}{% endblock %}
+
+{% block content %}
+<div id="posts">
+  {% include "root/render_post.html" %}
+</div>
+{% endblock %}
