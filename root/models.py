@@ -19,6 +19,10 @@ class Post(models.Model):
         else:
             return self.message[:20].rsplit(' ', 1)[0] + u'…'
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('ibtsocs.root.views.display', [str(self.id)])
+
 class Vote(models.Model):
     visitor = models.ForeignKey(Session)
     post = models.ForeignKey(Post, related_name='votes')
