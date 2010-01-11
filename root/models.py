@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from django.db import models
 from django.contrib.sessions.models import Session
+from django.core.exceptions import ObjectDoesNotExist
+from django.db import models
 
 import tagging
 
@@ -23,13 +24,18 @@ class Post(models.Model):
     def get_absolute_url(self):
         return ('ibtsocs.root.views.display', [str(self.id)])
 
-    @property
     def upvotes(self):
         return self.votes.filter(vote_up=True).count()
 
-    @property
     def downvotes(self):
         return self.votes.filter(vote_up=False).count()
+
+    def voted(self, visitor_id):
+        try:
+            v = self.votes.get(visitor__pk=visitor_id)
+            return 1 if v.vote_up else -1
+        except ObjectDoesNotExist:
+            return 0
 
 class Vote(models.Model):
     visitor = models.ForeignKey(Session)
