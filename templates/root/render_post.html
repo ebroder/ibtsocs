@@ -1,4 +1,9 @@
 <div class="post">
-  <div class="message">{{ post.message }}</div>
-  <div class="nickname">{{ post.nick|default:"Anonymous Coward" }}</div>
+  <div class="post_message">{{ post.message }}</div>
+  <div class="post_metadata">
+    <a class="post_id" href="{{ post.get_absolute_url }}">#{{ post.id }}</a> |
+    Posted by <span class="post_nick">{{ post.nick|default:"Anonymous Coward" }}</span>
+    <span class="post_epoch_time">{{ post.created|date:"U" }}</span> seconds after the Unix Epoch
+    (<span class="post_human_time">{{ post.created|date:"n/j/Y" }} at {{ post.created|time:"g:i:s a"}}</span>)
+  </div>
 </div>
