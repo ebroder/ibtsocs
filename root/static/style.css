@@ -46,3 +46,7 @@ h1 {
 .post_message {
     padding-bottom: 1em;
 }
+
+label {
+    display: block;
+}

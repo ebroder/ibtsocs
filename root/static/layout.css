@@ -29,3 +29,8 @@ body {
     margin: 1em 0;
     padding: 1em;
 }
+
+input, textarea, #recaptcha_response_field {
+    background: #3333a2;
+    color: #fff;
+}
