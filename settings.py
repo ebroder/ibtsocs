@@ -51,6 +51,8 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 7 * 4
 RECAPTCHA_PUBLIC_KEY = '6LdybwoAAAAAAOo2c6dtncL27pfbqxy52QH5HzZ5'
 RECAPTCHA_PRIVATE_KEY = '6LdybwoAAAAAAPffN4CHJUqngWfEuHhgOc4xpVRP'
 
+FORCE_SCRIPT_NAME = ''
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',

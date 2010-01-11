@@ -2,8 +2,8 @@
 
 <div class="post">
   <div class="post_message">{{ post.message }}</div>
+  <span class="post_link"><a class="post_id" href="{{ post.get_absolute_url }}">#{{ post.id }}</a> |</span>
   <div class="post_metadata">
-    <a class="post_id" href="{{ post.get_absolute_url }}">#{{ post.id }}</a> |
     Posted by <span class="post_nick">{{ post.nick|default:"Anonymous Coward" }}</span>
     <span class="post_epoch_time">{{ post.created|date:"U" }}</span> seconds after the Unix Epoch
     (<span class="post_human_time">{{ post.created|date:"n/j/Y" }} at {{ post.created|time:"g:i:s a"}}</span>)
@@ -12,4 +12,5 @@
       <span class="downvote">{% link_if_not_voted post visitor "down" "PEBKAC" %} ({{ post.downvotes }})</span>
     </div>
   </div>
+  <!-- floats suck --><div class="clear"></div>
 </div>

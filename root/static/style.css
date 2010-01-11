@@ -1,0 +1,48 @@
+/*
+  Shamelessly borrowed but edited from the stylesheet at debathena.mit.edu
+*/
+
+/* Basic fonts and sizes. */
+html {
+    font-size: 87.5%;
+}
+body {
+    font-family: "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Luxi Mono", Consolas, "Andale Mono", Monaco, "Courier New", monospace;
+    font-size: 110%;
+}
+h1 {
+    text-align: center;
+}
+
+/* Colors. */
+:link {
+    color: #66f;
+}
+:visited {
+    color: #66f;
+}
+.upvote, .downvote {
+    color: #ccc;
+}
+
+/* Remove link underline on hover. */
+:link, :visited {
+    text-decoration: underline;
+}
+:link:hover, :visited:hover {
+    text-decoration: none;
+}
+
+.post_metadata {
+    float: left;
+}
+.post_link {
+    float: left;
+    padding-right: 1ex;
+}
+.clear {
+    clear: both;
+}
+.post_message {
+    padding-bottom: 1em;
+}

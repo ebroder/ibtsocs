@@ -1,0 +1,31 @@
+/*
+  Shamelessly borrowed but edited from the stylesheet at debathena.mit.edu
+*/
+
+/* This file contains screen-only layout declarations that won't be
+   used for printing. */
+
+/* Make <body /> show up as a centered blue box with black border,
+   over the beige enclosing <html />. */
+html {
+    padding: 2em;
+    background: #f5f5dc;
+}
+body {
+    position: relative;
+    margin: 0 auto;
+    padding: 1em;
+    border: 5px solid black;
+    background: #000082;
+    color: #fff;
+}
+
+#postlink {
+    text-align: center;
+}
+
+.post {
+    border: 1px white solid;
+    margin: 1em 0;
+    padding: 1em;
+}
