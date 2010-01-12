@@ -1,4 +1,4 @@
-from django.contrib.syndicates.feeds import Feed
+from django.contrib.syndication.feeds import Feed
 from ibtsocs.root.models import Post
 
 class PostFeed(Feed):
