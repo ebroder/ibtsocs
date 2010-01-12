@@ -1,6 +1,6 @@
 {% load post_extras %}
 
-<div class="post">
+<div class="post" id="post_{{ post.id }}">
   <div class="post_message">{{ post.message }}</div>
   <span class="post_link"><a class="post_id" href="{{ post.get_absolute_url }}">#{{ post.id }}</a> |</span>
   <div class="post_metadata">
