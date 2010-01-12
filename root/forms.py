@@ -12,7 +12,7 @@ class PostForm(forms.ModelForm):
         required=True,
         widget=widgets.Textarea,
         )
-    if getattr(settings, 'RECAPTCHA', True):
+    if hasattr(settings, 'RECAPTCHA_PUBLIC_KEY'):
         recaptcha = ReCaptchaField()
 
     def clean_message(self):
