@@ -6,7 +6,7 @@ from ibtsocs.root.forms import PostForm
 
 def index(request):
     post_list = Post.objects.order_by('-created')
-    paginator = Paginator(post_list, 25)
+    paginator = Paginator(post_list, 10)
 
     try:
         page = int(request.GET.get('page', '1'))
