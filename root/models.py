@@ -42,6 +42,9 @@ class Post(models.Model):
     def downvotes(self):
         return self.votes.filter(vote_up=False).count()
 
+    def votes(self):
+        return self.votes.count()
+
     def voted(self, visitor_id):
         try:
             v = self.votes.get(visitor__pk=visitor_id)
