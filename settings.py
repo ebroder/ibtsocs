@@ -1,5 +1,8 @@
 # Django settings for ibtsocs project.
 
+import os
+import sys
+
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
@@ -60,6 +63,10 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.load_template_source',
 )
 
+TEMPLATE_DIRS = (
+    os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates'))
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -79,4 +86,10 @@ INSTALLED_APPS = (
     'ibtsocs.root',
 )
 
-from ibtsocs.site import *
+sys.path[0:0] = os.path.abspath(os.path.dirname(__file__))
+try:
+    from site import *
+except ImportError:
+    sys.stderr.write("Please create a 'site.py' file with your local database settings.")
+    sys.exit(1)
+del sys.path[0]
