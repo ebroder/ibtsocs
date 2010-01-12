@@ -57,6 +57,10 @@ class Vote(models.Model):
     post = models.ForeignKey(Post, related_name='votes')
     vote_up = models.BooleanField()
 
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+    submitted_from = models.IPAddressField()
+
     class Meta:
         unique_together = (('visitor', 'post'),)
 

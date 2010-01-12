@@ -34,7 +34,8 @@ def vote(request, post_id, direction):
     if not post.voted(visitor_id):
         v = Vote(post_id=post.id,
                  visitor_id=visitor_id,
-                 vote_up=(direction == 'up'))
+                 vote_up=(direction == 'up'),
+                 submitted_from=request.META['REMOTE_ADDR'])
         v.save()
     url = request.META.get('HTTP_REFERER', post.get_absolute_url())
     return redirect(url + '#post_%s' % post.id)
