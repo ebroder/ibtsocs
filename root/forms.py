@@ -1,4 +1,5 @@
 from django import forms
+from django.conf import settings
 from django.forms import widgets
 
 from ibtsocs.root.models import Post
@@ -11,7 +12,8 @@ class PostForm(forms.ModelForm):
         required=True,
         widget=widgets.Textarea,
         )
-    recaptcha = ReCaptchaField()
+    if getattr(settings, 'RECAPTCHA', True):
+        recaptcha = ReCaptchaField()
 
     def clean_message(self):
         message = self.cleaned_data['message']
