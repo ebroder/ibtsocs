@@ -36,7 +36,8 @@ def vote(request, post_id, direction):
                  visitor_id=visitor_id,
                  vote_up=(direction == 'up'))
         v.save()
-    return redirect(request.META.get('HTTP_REFERER', post))
+    url = request.META.get('HTTP_REFERER', post.get_absolute_url())
+    return redirect(url + '#post_%s' % post.id)
 
 def create(request):
     if request.method == 'POST':
