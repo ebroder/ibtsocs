@@ -4,7 +4,7 @@ from django.forms import widgets
 from ibtsocs.root.models import Post, Vote
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('short_message', 'nick', 'upvotes', 'downvotes', 'votes')
+    list_display = ('short_message', 'nick', 'upvotes', 'downvotes', 'allvotes')
 
     def formfield_for_dbfield(self, db_field, **kwargs):
         if db_field.name == 'message':

@@ -42,7 +42,7 @@ class Post(models.Model):
     def downvotes(self):
         return self.votes.filter(vote_up=False).count()
 
-    def votes(self):
+    def allvotes(self):
         return self.votes.count()
 
     def voted(self, visitor_id):
