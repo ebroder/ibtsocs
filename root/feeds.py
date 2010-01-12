@@ -7,3 +7,9 @@ class PostFeed(Feed):
 
     def items(self):
         return Post.objects.order_by('-created')[:25]
+
+    def item_author_name(self, item):
+        return item.nick
+
+    def item_pubdate(self, item):
+        return item.created
