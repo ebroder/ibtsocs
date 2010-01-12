@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}IBTSOCS: I Bemoan The State Of Computer Science{% endblock %}
+{% block header %}<link rel="alternate" type="application/rss+xml" title="IBTSOCS RSS Feed" href="{% url django.contrib.syndication.views.feed url="posts" %}" />{% endblock %}
 
 {% block navigation %}{% endblock %}
 
