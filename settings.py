@@ -79,3 +79,4 @@ INSTALLED_APPS = (
     'ibtsocs.root',
 )
 
+from ibtsocs.site import *
