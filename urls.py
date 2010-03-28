@@ -11,6 +11,8 @@ feeds = {
     'posts': PostFeed,
 }
 
+static = {'document_root': os.path.abspath(os.path.join(os.path.dirname(__file__), 'root', 'static'))}
+
 urlpatterns = patterns(
     '',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -18,7 +20,8 @@ urlpatterns = patterns(
     (r'^posts/$', 'django.views.generic.simple.redirect_to', {'url': '/'}),
     (r'^feeds?/$', 'django.views.generic.simple.redirect_to', {'url': '/feeds/posts'}),
     (r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
-    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.abspath(os.path.join(os.path.dirname(__file__), 'root', 'static'))}),
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', static),
+    (r'^(?P<path>robots.txt)$', 'django.views.static.serve', static),
 )
 
 urlpatterns += patterns(
@@ -26,5 +29,5 @@ urlpatterns += patterns(
     (r'^$', 'index'),
     (r'^posts/new/$', 'create'),
     (r'^posts/(\d+)/$', 'display'),
-    (r'^posts/(\d+)/(up|down)vote/$', 'vote'),
+    (r'^vote/(\d+)/(up|down)$', 'vote'),
 )
