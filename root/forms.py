@@ -1,9 +1,13 @@
+import re
+
 from django import forms
 from django.conf import settings
 from django.forms import widgets
 
 from ibtsocs.root.models import Post
 from ibtsocs.root.fields import ReCaptchaField
+
+POST_RE = re.compile(r'ibtso[a-z]*\.?$', re.I)
 
 class PostForm(forms.ModelForm):
     message = forms.CharField(
@@ -17,7 +21,7 @@ class PostForm(forms.ModelForm):
 
     def clean_message(self):
         message = self.cleaned_data['message']
-        if not message.rstrip(' .').lower().endswith('ibtsocs'):
+        if not re.search(message):
             raise forms.ValidationError("Are you sure you're on the right site? All posts must end with IBTSOCS.")
 
         return message
